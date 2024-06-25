@@ -1,4 +1,18 @@
-export default function DiscInput() {
+import generateId from "../../../utils/idGeneratorFn";
+
+export default function DiscInput({ discList, setDiscList }) {
+  const addDisc = (e) => {
+    e.preventDefault();
+    const newDiscList = [...discList];
+    newDiscList.push({
+      id: generateId(),
+      disc: document.querySelector("#discInput").value,
+      speed: document.querySelector("#discSpeed").value,
+      stability: document.querySelector("#discStability").value,
+    });
+    setDiscList(newDiscList);
+  };
+
   return (
     <div>
       <h2>Add a new disc</h2>
@@ -21,7 +35,7 @@ export default function DiscInput() {
           <option value="overstable">Overstable</option>
         </select>
 
-        <input type="submit" />
+        <input type="submit" onSubmit={addDisc} />
       </form>
     </div>
   );

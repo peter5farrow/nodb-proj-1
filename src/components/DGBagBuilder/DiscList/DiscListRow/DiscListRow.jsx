@@ -7,6 +7,8 @@ import { useState } from "react";
 export default function DiscListRow({
   initialDiscInfo,
   initialIsEditing,
+  discList,
+  setDiscList,
   onDeleteDisc,
 }) {
   const [isEditing, setIsEditing] = useState(initialIsEditing);
@@ -15,9 +17,23 @@ export default function DiscListRow({
   const [speed, setSpeed] = useState(initialDiscInfo.speed);
   const [stability, setStability] = useState(initialDiscInfo.stability);
 
-  const setEditMode = () => setIsEditing(true);
-  const setNormalMode = () => setIsEditing(false);
+  const updateDisc = (id) => {
+    const newDiscList = [...discList];
+    const index = newDiscList.findIndex((disc) => disc.id === id);
+    newDiscList.splice(index, 1, {
+      id: `${id}`,
+      disc: disc,
+      speed: speed,
+      stability: stability,
+    });
+    setDiscList(newDiscList);
+  };
 
+  const setEditMode = () => setIsEditing(true);
+  const setNormalMode = () => {
+    setIsEditing(false);
+    updateDisc(initialDiscInfo.id);
+  };
   return (
     <tr>
       <EditableRowModeButtons

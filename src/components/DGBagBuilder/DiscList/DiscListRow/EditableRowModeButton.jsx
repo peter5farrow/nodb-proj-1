@@ -5,15 +5,17 @@ export default function EditableRowModeButtons({
   onDeleteClick,
 }) {
   return isEditing ? (
-    <td>
-      <button onClick={onSaveClick}>Save</button>
+    <td className="mode-buttons">
+      <button name="save-button" onClick={onSaveClick}>
+        Save
+      </button>
     </td>
   ) : (
     <td>
-      <button id="delete-buttons" onClick={onDeleteClick}>
+      <button name="delete-button" onClick={onDeleteClick}>
         x
       </button>
-      <button id="edit-buttons" onClick={onEditClick}>
+      <button name="edit-button" onClick={onEditClick}>
         Edit
       </button>
     </td>

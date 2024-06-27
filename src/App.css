@@ -62,6 +62,16 @@ h6 {
 }
 
 /* new */
-table {
-  margin: 2em;
+table,
+#discInput,
+.grid-container {
+  margin: 35px;
+}
+
+#discInputBox,
+#speedInputBox,
+#stabilityInputBox,
+#inputSubmitButton,
+.info-cell {
+  margin: 5px;
 }

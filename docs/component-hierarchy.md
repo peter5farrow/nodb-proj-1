@@ -2,9 +2,12 @@
 
 - DGBagBuilder
   - BagGraphic
-    - DiscGraphic??
   - DiscList
     - DiscInput
+      - DiscInputBox
+      - SpeedInputBox
+      - StabilityInputBox
+      - InputSubmitButton
     - DiscListHeader
     - DiscListRow
       - EditableRowModeButtons
@@ -14,11 +17,11 @@
 
 changing data:
 
--initial list of discs (preset or empty) and their info (name, speed, stability)
+-initial list of discs (preset or empty) and their corresponding data (name, speed, stability)
 
--mode for each row
+-mode for each row (normal or editing)
 
--user input for disc name, speed, and stability
+-user input for disc (name, speed, and stability)
 
 -disc bag graphic
 
@@ -29,3 +32,5 @@ state:
 -edit mode
 
 -input values for disc, speed, stability
+
+-editable values for disc, speed, stability

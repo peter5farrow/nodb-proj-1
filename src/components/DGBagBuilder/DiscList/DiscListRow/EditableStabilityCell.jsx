@@ -1,4 +1,4 @@
-import capitalize from "../../../../utils/capitalizeFn";
+import capitalize from "../../../../../utils/capitalizeFn";
 
 export default function EditableStabilityCell({
   value,
@@ -8,9 +8,10 @@ export default function EditableStabilityCell({
   return isEditing ? (
     <td>
       <select
-        onChange={(e) => onValueChange(e.target.value)}
-        name="stability"
+        name="editableStabilityCell"
+        className="info-cell"
         value={value}
+        onChange={(e) => onValueChange(e.target.value)}
       >
         <option value="understable">Understable</option>
         <option value="stable">Stable</option>
@@ -18,6 +19,6 @@ export default function EditableStabilityCell({
       </select>
     </td>
   ) : (
-    <td>{capitalize(value)}</td>
+    <td className="info-cell">{capitalize(value)}</td>
   );
 }

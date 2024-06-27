@@ -1,11 +1,8 @@
-import { useState } from "react";
-import DiscInput from "./DiscInput";
+import DiscInput from "./DiscInput/DiscInput";
 import DiscListHeader from "./DiscListHeader";
 import DiscListRow from "./DiscListRow/DiscListRow";
 
-export default function DiscList({ initialDiscs }) {
-  const [discList, setDiscList] = useState(initialDiscs);
-
+export default function DiscList({ discList, setDiscList }) {
   const deleteDisc = (id) => {
     const newDiscList = [...discList];
     const index = newDiscList.findIndex((disc) => disc.id === id);
@@ -15,11 +12,14 @@ export default function DiscList({ initialDiscs }) {
 
   const rows = discList.map((eachDisc) => {
     const { id, disc, speed, stability } = eachDisc;
+
     return (
       <DiscListRow
         key={id}
-        initialDiscInfo={{ disc, speed, stability }}
+        initialDiscInfo={{ id, disc, speed, stability }}
         initialIsEditing={false}
+        discList={discList}
+        setDiscList={setDiscList}
         onDeleteDisc={() => deleteDisc(id)}
       />
     );
@@ -27,7 +27,7 @@ export default function DiscList({ initialDiscs }) {
 
   return (
     <div>
-      <DiscInput />
+      <DiscInput discList={discList} setDiscList={setDiscList} />
       <table>
         <thead>
           <DiscListHeader />

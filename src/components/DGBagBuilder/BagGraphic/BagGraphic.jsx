@@ -1,8 +1,8 @@
 import "./BagGraphicStyles.css";
 
-export default function BagGraphic({ initialDiscs }) {
+export default function BagGraphic({ discList }) {
   const discArray = [];
-  const discs = [...initialDiscs];
+  const discs = [...discList];
 
   for (const disc of discs) {
     discArray.push(<div className={disc.speed} key={disc.id}></div>);

@@ -3,15 +3,14 @@ import DiscInput from "./DiscInput/DiscInput";
 import DiscListHeader from "./DiscListHeader";
 import DiscListRow from "./DiscListRow/DiscListRow";
 
-export default function DiscList({ discList, setDiscList }) {
+export default function DiscList({ discList }) {
   const deleteDisc = async (id) => {
     const { data } = await axios.delete(`/api/discs/${id}/delete`);
-    if (!data.error) {
-      const newDiscList = [...discList];
-      const index = newDiscList.findIndex((disc) => disc.id === id);
-      newDiscList.splice(index, 1);
-      setDiscList(newDiscList);
-    }
+    // if (!data.error) {
+    //   const newDiscList = [...discList];
+    //   const index = newDiscList.findIndex((disc) => disc.id === id);
+    //   newDiscList.splice(index, 1);
+    // }
   };
 
   const rows = discList.map((eachDisc) => {
@@ -23,7 +22,6 @@ export default function DiscList({ discList, setDiscList }) {
         initialDiscInfo={{ id, disc, speed, stability }}
         initialIsEditing={false}
         discList={discList}
-        setDiscList={setDiscList}
         onDeleteDisc={() => deleteDisc(id)}
       />
     );
@@ -31,7 +29,7 @@ export default function DiscList({ discList, setDiscList }) {
 
   return (
     <div>
-      <DiscInput discList={discList} setDiscList={setDiscList} />
+      <DiscInput discList={discList} />
       <table>
         <thead>
           <DiscListHeader />

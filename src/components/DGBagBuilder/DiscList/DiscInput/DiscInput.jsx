@@ -6,7 +6,7 @@ import DiscInputSubmitButton from "./InputSubmitButton";
 import generateId from "../../../../../utils/idGeneratorFn";
 import { useState } from "react";
 
-export default function DiscInput({ discList, setDiscList }) {
+export default function DiscInput({ discList }) {
   const [disc, setDisc] = useState("new disc");
   const [speed, setSpeed] = useState("putter");
   const [stability, setStability] = useState("understable");
@@ -33,9 +33,6 @@ export default function DiscInput({ discList, setDiscList }) {
       speed: data.speed,
       stability: data.stability,
     };
-    const newDiscList = discList.push(newDisc);
-
-    setDiscList(newDiscList);
   };
 
   // app.post('/api/invoice', (req, res) => {

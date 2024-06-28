@@ -9,7 +9,6 @@ export default function DiscListRow({
   initialDiscInfo,
   initialIsEditing,
   discList,
-  setDiscList,
   onDeleteDisc,
 }) {
   const [isEditing, setIsEditing] = useState(initialIsEditing);
@@ -28,7 +27,6 @@ export default function DiscListRow({
         speed: speed,
         stability: stability,
       });
-      setDiscList(newDiscList);
     }
   };
 

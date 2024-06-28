@@ -49,6 +49,40 @@ app.post("/api/discs", (req, res) => {
   res.json(newDisc);
 });
 
+//PUT
+app.put("/api/discs/:id", (req, res) => {
+  const { id } = req.params;
+  const { disc, speed, stability } = req.body;
+
+  const index = TEST_DATA.findIndex((item) => item.id === Number(id));
+
+  if (index === -1) {
+    res.status(404).json({ error: `Disc with ID ${id} not found.` });
+  } else {
+    const item = TEST_DATA[index];
+
+    // Only update the values that are provided in req.body
+    item.disc = disc || item.disc;
+    item.speed = speed || item.speed;
+    item.stability = stability || item.stability;
+
+    res.json(item);
+  }
+});
+
+//DELETE
+app.delete("/api/discs/:id/delete", (req, res) => {
+  const { id } = req.params;
+
+  const index = TEST_DATA.findIndex((item) => item.id === Number(id));
+  if (index === -1) {
+    res.status(404).json({ error: `Disc with ID ${id} not found.` });
+  } else {
+    TEST_DATA.splice(index, 1);
+    res.json({ id: Number(id) });
+  }
+});
+
 ViteExpress.listen(app, port, () =>
   console.log(`Server is listening on http://localhost:${port}`)
 );

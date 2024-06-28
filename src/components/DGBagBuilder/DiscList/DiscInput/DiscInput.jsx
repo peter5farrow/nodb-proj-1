@@ -1,3 +1,4 @@
+import axios from "axios";
 import DiscInputBox from "./DiscInputBox";
 import SpeedInputBox from "./SpeedInputBox";
 import StabilityInputBox from "./StabilityInputBox";
@@ -20,19 +21,37 @@ export default function DiscInput({ discList, setDiscList }) {
     setStability(e.target.value);
   }
 
-  const addDisc = (e) => {
-    e.preventDefault();
-
-    const newDiscList = [...discList];
-    newDiscList.push({
-      id: generateId(),
+  const addDisc = async () => {
+    const { data } = await axios.post("api/discs", {
       disc: disc,
       speed: speed,
       stability: stability,
     });
+    const newDisc = {
+      id: generateId(),
+      disc: data.disc,
+      speed: data.speed,
+      stability: data.stability,
+    };
+    const newDiscList = discList.push(newDisc);
 
     setDiscList(newDiscList);
   };
+
+  // app.post('/api/invoice', (req, res) => {
+  //   const { description, rate, hours } = req.body;
+
+  //   const newItem = {
+  //     id: generateId(),
+  //     If no value is provided in req.body, use default values
+  //     description: description || '',
+  //     rate: Number(rate) || 0,
+  //     hours: Number(hours) || 0,
+  //   };
+
+  //   TEST_DATA.push(newItem);
+  //   res.json(newItem);
+  // });
 
   return (
     <div id="discInput">

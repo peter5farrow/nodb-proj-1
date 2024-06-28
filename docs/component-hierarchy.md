@@ -17,20 +17,22 @@
 
 changing data:
 
--initial list of discs (preset or empty) and their corresponding data (name, speed, stability)
+-list of discs (preset or empty) and their corresponding data (name, speed, stability)
 
 -mode for each row (normal or editing)
 
 -user input for disc (name, speed, and stability)
 
+-each row when edited
+
 -disc bag graphic
 
 state:
 
--whole list
+-whole list(App)
 
--edit mode
+-edit mode(DiscListRow)
 
--input values for disc, speed, stability
+-editable values for disc, speed, stability(DiscListRow)
 
--editable values for disc, speed, stability
+-input values for disc, speed, stability(DiscInput)

@@ -21,11 +21,11 @@ const TEST_DATA = [
   { id: 3, disc: "Rive", speed: "driver", stability: "overstable" },
 ];
 
+let starterId = 4;
+
 function generateId() {
-  let lastDisc = TEST_DATA[TEST_DATA.length - 1];
-  let id = lastDisc.id;
-  id += 1;
-  return id;
+  starterId += 1;
+  return starterId;
 }
 
 // Routes go here
@@ -61,7 +61,6 @@ app.put("/api/discs/:id", (req, res) => {
   } else {
     const item = TEST_DATA[index];
 
-    // Only update the values that are provided in req.body
     item.disc = disc || item.disc;
     item.speed = speed || item.speed;
     item.stability = stability || item.stability;

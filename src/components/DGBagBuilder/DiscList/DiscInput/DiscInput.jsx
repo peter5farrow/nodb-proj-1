@@ -29,29 +29,11 @@ export default function DiscInput({ discList, setDiscList }) {
     });
     const newDisc = {
       id: generateId(),
-      disc: data.disc,
-      speed: data.speed,
-      stability: data.stability,
+      ...data,
     };
-    const newDiscList = discList.push(newDisc);
 
-    setDiscList(newDiscList);
+    setDiscList([...discList, newDisc]);
   };
-
-  // app.post('/api/invoice', (req, res) => {
-  //   const { description, rate, hours } = req.body;
-
-  //   const newItem = {
-  //     id: generateId(),
-  //     If no value is provided in req.body, use default values
-  //     description: description || '',
-  //     rate: Number(rate) || 0,
-  //     hours: Number(hours) || 0,
-  //   };
-
-  //   TEST_DATA.push(newItem);
-  //   res.json(newItem);
-  // });
 
   return (
     <div id="discInput">

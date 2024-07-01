@@ -1,4 +1,4 @@
-import "./BagGraphicStyles.css";
+import "./BagGraphic.css";
 
 export default function BagGraphic({ discList }) {
   const discArray = [];

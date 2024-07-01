@@ -67,11 +67,3 @@ table,
 .grid-container {
   margin: 35px;
 }
-
-#discInputBox,
-#speedInputBox,
-#stabilityInputBox,
-#inputSubmitButton,
-.info-cell {
-  margin: 5px;
-}

@@ -2,6 +2,7 @@ import axios from "axios";
 import DiscInput from "./DiscInput/DiscInput";
 import DiscListHeader from "./DiscListHeader";
 import DiscListRow from "./DiscListRow/DiscListRow";
+import "./DiscList.css";
 
 export default function DiscList({ discList, setDiscList }) {
   const deleteDisc = async (id) => {

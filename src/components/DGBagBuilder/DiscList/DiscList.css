@@ -1,0 +1,12 @@
+#discInputBox,
+#speedInputBox,
+#stabilityInputBox,
+#inputSubmitButton,
+.info-cell {
+  margin: 8px;
+}
+
+.info-cell {
+  width: 100px;
+  text-align: center;
+}

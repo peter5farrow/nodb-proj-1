@@ -9,10 +9,10 @@ export default function EditableSpeedCell({ value, isEditing, onValueChange }) {
         value={value}
         onChange={(e) => onValueChange(e.target.value)}
       >
-        <option value="putter">Putter</option>
-        <option value="midrange">Midrange</option>
-        <option value="fairway">Fairway</option>
         <option value="driver">Driver</option>
+        <option value="fairway">Fairway</option>
+        <option value="midrange">Midrange</option>
+        <option value="putter">Putter</option>
       </select>
     </td>
   ) : (

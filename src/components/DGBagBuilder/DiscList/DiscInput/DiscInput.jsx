@@ -8,7 +8,7 @@ import { useState } from "react";
 
 export default function DiscInput({ discList, setDiscList }) {
   const [disc, setDisc] = useState("new disc");
-  const [speed, setSpeed] = useState("putter");
+  const [speed, setSpeed] = useState("driver");
   const [stability, setStability] = useState("understable");
 
   function handleDisc(e) {

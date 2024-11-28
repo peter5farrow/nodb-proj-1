@@ -48,7 +48,7 @@ export default function DiscList({ discList, setDiscList }) {
   });
 
   return (
-    <div>
+    <div className="discList">
       <DiscInput discList={discList} setDiscList={setDiscList} />
       <table>
         <thead>

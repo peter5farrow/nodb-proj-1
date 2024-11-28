@@ -1,6 +1,6 @@
 export default function DiscListHeader() {
   return (
-    <tr>
+    <tr id="header">
       <th></th>
       <th>Disc</th>
       <th>Speed</th>

@@ -8,8 +8,11 @@ function App({ initialDiscList }) {
 
   return (
     <>
-      <BagGraphic discList={discList} />
-      <DiscList discList={discList} setDiscList={setDiscList} />
+      <h1>DG Bag Builder</h1>
+      <div className="discBagOutline">
+        <BagGraphic discList={discList} />
+        <DiscList discList={discList} setDiscList={setDiscList} />
+      </div>
     </>
   );
 }

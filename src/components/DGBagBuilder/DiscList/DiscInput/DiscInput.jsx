@@ -21,7 +21,8 @@ export default function DiscInput({ discList, setDiscList }) {
     setStability(e.target.value);
   }
 
-  const addDisc = async () => {
+  const addDisc = async (e) => {
+    e.preventDefault();
     const { data } = await axios.post("api/discs", {
       disc: disc,
       speed: speed,

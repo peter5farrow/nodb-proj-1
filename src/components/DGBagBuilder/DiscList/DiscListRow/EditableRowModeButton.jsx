@@ -12,10 +12,15 @@ export default function EditableRowModeButtons({
     </td>
   ) : (
     <td>
-      <button name="delete-button" onClick={onDeleteClick}>
+      <button
+        className="mode-buttons"
+        id="delete-button"
+        name="delete-button"
+        onClick={onDeleteClick}
+      >
         x
       </button>
-      <button name="edit-button" onClick={onEditClick}>
+      <button className="mode-buttons" name="edit-button" onClick={onEditClick}>
         Edit
       </button>
     </td>

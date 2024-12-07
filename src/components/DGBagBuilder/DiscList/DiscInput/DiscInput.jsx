@@ -41,11 +41,8 @@ export default function DiscInput({ discList, setDiscList }) {
       <h2>Add a new disc</h2>
       <form id="discForm">
         <DiscInputBox onChange={handleDisc} />
-
         <SpeedInputBox onChange={handleSpeed} />
-
         <StabilityInputBox onChange={handleStability} />
-
         <DiscInputSubmitButton onSubmit={addDisc} />
       </form>
     </div>

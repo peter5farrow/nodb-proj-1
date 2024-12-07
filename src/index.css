@@ -47,11 +47,12 @@ h2 {
 }
 
 .discBagOutline {
+  width: 80vw;
   margin-top: 1rem;
   padding: 2rem;
   border: 8px solid rgb(98, 5, 5);
   border-radius: 8rem 8rem 2rem 2rem;
-  background-color: rgb(245, 40, 40);
+  background-color: rgb(244, 76, 76);
 }
 
 h1 {
@@ -65,6 +66,9 @@ h1 {
 }
 
 #discInput {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   margin-bottom: 1.5rem;
 }
 

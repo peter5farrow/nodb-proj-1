@@ -1,4 +1,4 @@
-import capitalize from "../../../../../utils/capitalizeFn";
+import capitalize from "../../../../utils/capitalizeFn";
 
 export default function EditableDiscCell({ value, isEditing, onValueChange }) {
   return isEditing ? (

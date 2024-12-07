@@ -1,16 +1,40 @@
+// import express from "express";
+// import morgan from "morgan";
+// import ViteExpress from "vite-express";
+
+// const app = express();
+// const port = "8000";
+
+// app.use(morgan("dev"));
+// app.use(express.urlencoded({ extended: false }));
+// app.use(express.json());
+
+// ViteExpress.config({ printViteDevServerHost: true });
+
 import express from "express";
 import morgan from "morgan";
 import ViteExpress from "vite-express";
 
 const app = express();
-const port = "8000";
+const port = process.env.PORT || 8000; // Use environment port or default to 8000
 
-app.use(morgan("dev"));
+// Middleware
+if (process.env.NODE_ENV === "development") {
+  app.use(morgan("dev")); // Only use morgan in development
+}
+
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-ViteExpress.config({ printViteDevServerHost: true });
+// Conditionally configure ViteExpress for development
+if (process.env.NODE_ENV === "development") {
+  ViteExpress.config({ printViteDevServerHost: true });
+} else {
+  // In production, serve static assets from build folder
+  app.use(express.static("dist"));
+}
 
+// Initial data
 const TEST_DATA = [
   { id: 0, disc: "Aviar", speed: "putter", stability: "stable" },
 
@@ -28,7 +52,7 @@ function generateId() {
   return starterId;
 }
 
-// Routes go here
+// Routes
 //GET
 app.get("/api/discs", (req, res) => {
   res.json(TEST_DATA);
@@ -82,6 +106,12 @@ app.delete("/api/discs/:id/delete", (req, res) => {
   }
 });
 
-ViteExpress.listen(app, port, () =>
-  console.log(`Server is listening on http://localhost:${port}`)
-);
+// For dev
+// ViteExpress.listen(app, port, () =>
+//   console.log(`Server is listening on http://localhost:${port}`)
+// );
+
+// For dist
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+});

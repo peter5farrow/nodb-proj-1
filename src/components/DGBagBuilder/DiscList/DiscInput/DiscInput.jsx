@@ -3,7 +3,7 @@ import DiscInputBox from "./DiscInputBox";
 import SpeedInputBox from "./SpeedInputBox";
 import StabilityInputBox from "./StabilityInputBox";
 import DiscInputSubmitButton from "./InputSubmitButton";
-import generateId from "../../../../../utils/idGeneratorFn";
+import generateId from "../../../../utils/idGeneratorFn";
 import { useState } from "react";
 
 export default function DiscInput({ discList, setDiscList }) {

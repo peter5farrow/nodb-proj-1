@@ -1,16 +1,3 @@
-// import express from "express";
-// import morgan from "morgan";
-// import ViteExpress from "vite-express";
-
-// const app = express();
-// const port = "8000";
-
-// app.use(morgan("dev"));
-// app.use(express.urlencoded({ extended: false }));
-// app.use(express.json());
-
-// ViteExpress.config({ printViteDevServerHost: true });
-
 import express from "express";
 import morgan from "morgan";
 import ViteExpress from "vite-express";
@@ -106,12 +93,12 @@ app.delete("/api/discs/:id/delete", (req, res) => {
   }
 });
 
-// For dev
-// ViteExpress.listen(app, port, () =>
-//   console.log(`Server is listening on http://localhost:${port}`)
-// );
-
-// For dist
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-});
+if (process.env.NODE_ENV === "development") {
+  ViteExpress.listen(app, port, () =>
+    console.log(`Server is listening on http://localhost:${port}`)
+  );
+} else {
+  app.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
+  });
+}

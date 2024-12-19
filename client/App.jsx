@@ -3,8 +3,16 @@ import "./App.css";
 import BagGraphic from "./components/DGBagBuilder/BagGraphic/BagGraphic";
 import DiscList from "./components/DGBagBuilder/DiscList/DiscList";
 
-function App({ initialDiscList }) {
-  const [discList, setDiscList] = useState(initialDiscList);
+function App() {
+  const [discList, setDiscList] = useState([
+    { id: 0, disc: "Aviar", speed: "putter", stability: "stable" },
+
+    { id: 1, disc: "Hex", speed: "midrange", stability: "stable" },
+
+    { id: 2, disc: "Undertaker", speed: "fairway", stability: "understable" },
+
+    { id: 3, disc: "Rive", speed: "driver", stability: "overstable" },
+  ]);
 
   return (
     <>

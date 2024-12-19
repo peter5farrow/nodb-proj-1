@@ -1,9 +1,18 @@
 import express from "express";
 import morgan from "morgan";
 import ViteExpress from "vite-express";
+import path from "path";
+import { fileURLToPath } from "url";
+import { dirname } from "path";
+
+// Get the current module's file path
+const __filename = fileURLToPath(import.meta.url);
+
+// Get the directory name of the current module
+const __dirname = dirname(__filename);
 
 const app = express();
-const port = process.env.PORT || 8000; // Use environment port or default to 8000
+const port = process.env.PORT || 8000;
 
 // Middleware
 if (process.env.NODE_ENV === "development") {
@@ -17,8 +26,13 @@ app.use(express.json());
 if (process.env.NODE_ENV === "development") {
   ViteExpress.config({ printViteDevServerHost: true });
 } else {
-  // In production, serve static assets from build folder
-  app.use(express.static("dist"));
+  // Serve static files from the Vite build directory
+  app.use(express.static(path.join(__dirname, "../dist")));
+
+  // The catch-all route for any request that doesn't match an API route
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "../dist", "index.html"));
+  });
 }
 
 // Initial data
@@ -40,7 +54,7 @@ function generateId() {
 }
 
 // Routes
-//GET
+// GET
 app.get("/api/discs", (req, res) => {
   res.json(TEST_DATA);
 });
